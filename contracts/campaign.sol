@@ -45,6 +45,19 @@ contract Campaign {
 
         requests.push(newRequest);
     }
+
+    function approveRequests (uint index) public {
+        Request storage request = requests[index];
+
+        // This line is to check wheter user is a donator. If so it will return true
+        require(approvers[msg.sender]);
+
+        // This line is to check wheter the user is already voted or not
+        require(!request.approvals[msg.sender]);
+
+        request.approvals[msg.sender] = true;
+        request.approvalCount++;        
+    }
     
 
     function getAllEthers() public {
