@@ -14,6 +14,8 @@ contract Campaign {
     address public manager;
     uint public minimumContribution;
     mapping(address => bool) approvers;
+    uint public approversCount;
+
 
     modifier restricted () {
         require(msg.sender == manager);
@@ -29,6 +31,7 @@ contract Campaign {
         require(msg.value > minimumContribution);
 
         approvers[msg.sender] = true;
+        approversCount++;
     }
 
 
@@ -64,4 +67,14 @@ contract Campaign {
         msg.sender.transfer(this.balance);
     }
 
+    function finalizeRequest (uint index) public restricted {
+        Request storage request = requests[index];
+
+        require(!request.complete);
+        require(request.approvalCount > (approversCount / 2));
+
+        request.recipient.transfer(request.value);
+        request.complete = true;
+
+    }
 }
