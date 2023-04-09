@@ -31,7 +31,7 @@ contract Campaign {
     Request[] public requests;
     address public manager;
     uint public minimumContribution;
-    mapping(address => bool) approvers;
+    mapping(address => bool) public approvers;
     uint public approversCount;
 
 
@@ -54,8 +54,6 @@ contract Campaign {
 
 
     function createRequest(string description, uint value, address recipient) public restricted {
-        require(approvers[msg.sender]);
-
         Request memory newRequest = Request({
             description: description,
             value: value,
