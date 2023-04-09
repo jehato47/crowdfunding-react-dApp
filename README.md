@@ -1,70 +1,57 @@
-# Getting Started with Create React App
+# 🌐 Decentralized Crowdfunding
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This project contains two Solidity smart contracts for creating and managing a decentralized crowdfunding campaign:
 
-## Available Scripts
+- 🏭 `CampaignFactory.sol`: factory contract that deploys new campaign contracts and keeps track of their addresses.
+- 💰 `Campaign.sol`: contract that manages a single crowdfunding campaign, with features such as accepting contributions, creating spending requests, approving requests, and finalizing them.
 
-In the project directory, you can run:
+## 🚀 Getting Started
 
-### `npm start`
+To run the project, you will need to have the following software installed:
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+- 🌐 [Node.js](https://nodejs.org/)
+- ⛓️ [Ganache](https://www.trufflesuite.com/ganache)
+- 📦 [Truffle](https://www.trufflesuite.com/truffle)
+- 💳 [MetaMask](https://metamask.io/)
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+Once you have these tools installed, follow these steps:
 
-### `npm test`
+1. Clone the repository and navigate to the project directory.
+2. Run `npm install` to install the project's dependencies.
+3. Open Ganache and start a new workspace.
+4. In MetaMask, connect to your local Ganache network and import one of the accounts using its private key.
+5. Run `truffle migrate` to deploy the smart contracts to your local network.
+6. Run `npm start` to start the frontend application.
+7. In your browser, go to `http://localhost:3000` to access the application.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## 💻 Usage
 
-### `npm run build`
+The application allows you to create new crowdfunding campaigns and manage existing ones. Here are the main features:
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### 🌱 Creating a new campaign
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+To create a new crowdfunding campaign, enter a minimum contribution amount and click the "Create Campaign" button. This will deploy a new `Campaign` contract to the network, and you will be redirected to the campaign details page.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### 💸 Contributing to a campaign
 
-### `npm run eject`
+To contribute to a campaign, enter a contribution amount and click the "Contribute" button. This will send Ether to the campaign contract and add you as an approver.
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+### 📝 Creating a spending request
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+To create a new spending request, enter a description, a value, and the address of the recipient, and click the "Create Request" button. This will add a new spending request to the campaign.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+### 👍 Approving a spending request
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+To approve a spending request, click the "Approve" button next to the request you want to approve. This will add your approval to the request.
 
-## Learn More
+### 🎉 Finalizing a spending request
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+To finalize a spending request, click the "Finalize" button next to the request you want to finalize. This will send Ether to the recipient and mark the request as complete.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+### 💰 Withdrawing all Ether
 
-### Code Splitting
+To withdraw all Ether from a campaign, click the "Withdraw" button. This will send all Ether in the campaign contract to the manager's address.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+## 📜 License
 
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details.
