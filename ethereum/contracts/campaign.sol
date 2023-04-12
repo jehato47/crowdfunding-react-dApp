@@ -79,9 +79,9 @@ contract Campaign {
     }
     
 
-    function getAllEthers() public {
-        msg.sender.transfer(this.balance);
-    }
+    // function getAllEthers() public {
+    //     msg.sender.transfer(this.balance);
+    // }
 
     function finalizeRequest (uint index) public restricted {
         Request storage request = requests[index];
