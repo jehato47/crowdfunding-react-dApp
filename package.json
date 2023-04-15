@@ -23,9 +23,9 @@
     },
     "scripts": {
         "test": "mocha",
-        "start": "react-scripts start",
         "build": "react-scripts build",
         "eject": "react-scripts eject",
+        "start": "node server.js",
         "dev": "next dev"
     },
     "eslintConfig": {
