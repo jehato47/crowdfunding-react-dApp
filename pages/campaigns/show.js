@@ -2,7 +2,8 @@ import React, { Component } from "react";
 import Layout from "../../components/layout";
 import Campaign from "../../ethereum/campaign";
 import web3 from "../../ethereum/web3";
-import { Card } from "semantic-ui-react";
+import { Grid, Card, GridColumn } from "semantic-ui-react";
+import ContributeForm from "../../components/contributeForm";
 
 class CampaignShow extends Component {
   static async getInitialProps(props) {
@@ -69,7 +70,17 @@ class CampaignShow extends Component {
     return (
       <Layout>
         <h3>Campaign Show</h3>
-        {this.renderCards()}
+
+        <Grid>
+          <Grid.Column width={10}>{this.renderCards()}</Grid.Column>
+          
+          <GridColumn width={6}>
+            <ContributeForm />
+          </GridColumn>
+
+        </Grid>
+
+        {/* <ContributeForm /> */}
       </Layout>
     );
   }
